@@ -9,56 +9,72 @@ internal class Program {
         bool dontexit = true;
         while (dontexit)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Calculador de altura!");
-            Console.ResetColor();
-
-            Console.WriteLine("\nDigite o número respectivo à função desejada");
-            Console.WriteLine("\n1 - Começar\n2 - Opções\n3 - Sair");
-
-            string funcaodesejadatxt = Console.ReadLine();
-            var funcaodesejadaint = float.Parse(funcaodesejadatxt);
-            Paginainicial opcaodesejada = (Paginainicial)funcaodesejadaint;
-
-            if (funcaodesejadaint <= 0) 
+            try
             {
-                Console.Clear();
-                Console.ForegroundColor= ConsoleColor.Red;
-                Console.WriteLine("Opção não listada, tente novamente.");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Calculador de altura!");
                 Console.ResetColor();
-                Console.ReadLine();
-                Console.Clear();
 
-            }
-            if (funcaodesejadaint >= 4)
+                Console.WriteLine("\nDigite o número respectivo à função desejada");
+                Console.WriteLine("\n1 - Começar\n2 - Opções\n3 - Sair");
+
+                string funcaodesejadatxt = Console.ReadLine();
+                var funcaodesejadaint = float.Parse(funcaodesejadatxt);
+                Paginainicial opcaodesejada = (Paginainicial)funcaodesejadaint;
+
+                if (funcaodesejadaint <= 0)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine("Opção não listada, tente novamente.");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+
+                }
+                if (funcaodesejadaint >= 4)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine("Opção não listada, tente novamente.");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+
+                if (opcaodesejada == Paginainicial.Começar)
+                {
+                    Comeco();
+                }
+
+                if (opcaodesejada == Paginainicial.Opções)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Porque um calculador de altura teria opções??????");
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu.");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+
+                if (opcaodesejada == Paginainicial.Sair)
+                {
+                    break; //saída do aplicativo
+                }
+              }
+            catch (System.FormatException)
             {
+
                 Console.Clear();
-                Console.ForegroundColor= ConsoleColor.Red;  
-                Console.WriteLine("Opção não listada, tente novamente.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Digite somente NÚMEROS:");
                 Console.ResetColor();
+                Console.WriteLine("Pressione qualquer tecla para voltar ao menu principal. . .");
                 Console.ReadLine();
                 Console.Clear();
+
             }
 
-            if (opcaodesejada == Paginainicial.Começar)
-            {
-                Comeco();
-            }
-
-            if (opcaodesejada == Paginainicial.Opções)
-            {
-                Console.Clear();
-                Console.WriteLine("Porque um calculador de altura teria opções??????");
-                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu.");
-                Console.ReadLine();
-                Console.Clear();
-            }
-
-            if (opcaodesejada == Paginainicial.Sair)
-            {
-                break; //saída do aplicativo
-            }
-            
         
         }
     }   
