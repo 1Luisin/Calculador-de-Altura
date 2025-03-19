@@ -100,7 +100,7 @@ internal class Program {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\nPronto!");
         Console.ResetColor();
-        Console.WriteLine($"\nA sua altura é {alturausuario} ;D");
+        Console.WriteLine($"\nA sua altura é {alturausuario}m ;D");
         Console.WriteLine("\nPressione qualquer tecla para voltar ao menu");
         Console.ReadKey();
         Console.Clear();
